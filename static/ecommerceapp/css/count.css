@@ -1,0 +1,26 @@
+/* count increment */
+
+:root {
+    --primary: #06BBCC;
+    --light: #F0FBFC;
+    --dark: #181d38;
+}
+
+.card {
+    border: 1px solid #ddd;
+    color: var(--light) !important;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: var(--primary) !important;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:var(--primary);
+    margin-top: 10px;
+} 
+
+

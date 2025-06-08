@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5" style="width: 50%;">
+    <div class="row justify-content-center">
+            <div class="card shadow-lg border-0" style="background-color: var(--light);">
+                <div class="card-header text-center" style="background-color: var(--primary); color: white;">
+                    <h4>Checkout</h4>
+                </div>
+
+                <div class="card-body" style="color: var(--dark);">
+                    {% if service %}
+                    <!-- Display correct service name and price -->
+                    <p><strong>Course:</strong> {{ service.name }}</p>
+                    <p><strong>Amount:</strong> {{ transaction.amount }} {{ transaction.currency }}</p>
+                    <p><strong>Status:</strong> {{ transaction.status }}</p>
+                    {% elif courses %}
+                    <p><strong>Service:</strong> {{ courses.name }}</p>
+                    <p><strong>Amount:</strong> {{ transaction.amount }} {{ transaction.currency }}</p>
+                    <p><strong>Status:</strong> {{ transaction.status }}</p>
+                    {% endif%}
+                    <!-- Payment Form -->
+                    <form action="{% url 'process_payment' transaction.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary w-100">Proceed to PayPal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
